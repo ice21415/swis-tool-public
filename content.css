@@ -1,0 +1,482 @@
+@font-face {
+    font-family: "NotoSansTC-Regular";
+    src: url("assets/fonts/NotoSansTC-Regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "NotoSansTC-Regular";
+    src: url("assets/fonts/NotoSansTC-SemiBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+}
+
+html,
+body,
+body *,
+button,
+input,
+select,
+textarea,
+option,
+optgroup,
+table,
+svg text {
+    font-family: "NotoSansTC-Regular", "Microsoft JhengHei", "PingFang TC", "Segoe UI", Arial, sans-serif !important;
+}
+
+.crx-open-tool-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: background-color 0.3s;
+}
+
+.crx-open-tool-btn:hover {
+    background-color: #0056b3;
+}
+
+.crx-tool-iframe {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 840px;
+    height: 90vh;
+    max-height: 800px;
+    z-index: 9998;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    background-color: white;
+    border-radius: 8px;
+}
+
+@keyframes swis-dialog-backdrop-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes swis-dialog-sheet-in {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 22px, 0) scale(0.965);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+}
+
+#historical-notes-dialog,
+#passbook-dialog,
+#staged-attachment-upload-dialog,
+#investment-subtotals-dialog,
+#batch-cert-dialog {
+    animation: swis-dialog-backdrop-in 200ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity;
+}
+
+.prison-status-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    margin-left: 6px !important;
+    padding: 1px 7px !important;
+    border-radius: 12px !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
+    cursor: default !important;
+    border: 1px solid transparent !important;
+    box-shadow: 0 1px 2px rgba(0,0,0,.05) !important;
+    user-select: none !important;
+    white-space: nowrap !important;
+}
+
+.prison-status-badge-line {
+    display: block !important;
+    margin-top: 3px !important;
+    line-height: 1.2 !important;
+}
+
+.prison-status-badge.is-active {
+    color: #b71c1c !important;
+    border-color: #b71c1c !important;
+    background: #ffebee !important;
+}
+
+.prison-status-badge.is-released {
+    color: #455a64 !important;
+    border-color: #607d8b !important;
+    background: #eceff1 !important;
+}
+
+.household-status-id-cell {
+    color: #b71c1c !important;
+    font-weight: 700 !important;
+    background: #ffebee !important;
+}
+
+input.household-status-id-input {
+    color: #b71c1c !important;
+    border: 2px solid #b71c1c !important;
+    background: #ffebee !important;
+    font-weight: 700 !important;
+}
+
+.household-status-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    margin-left: 6px !important;
+    padding: 1px 7px !important;
+    border-radius: 12px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    cursor: default !important;
+    color: #b71c1c !important;
+    border: 1px solid #b71c1c !important;
+    background: #ffffff !important;
+    box-shadow: 0 1px 2px rgba(0,0,0,.05) !important;
+    user-select: none !important;
+    white-space: nowrap !important;
+}
+
+.household-status-badge-line {
+    display: block !important;
+    margin-top: 3px !important;
+    line-height: 1.2 !important;
+}
+
+.household-status-indicator {
+    position: fixed !important;
+    top: 12px !important;
+    right: 14px !important;
+    z-index: 2147483647 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    max-width: min(420px, calc(100vw - 28px)) !important;
+    margin: 0 !important;
+    padding: 4px 10px !important;
+    border-radius: 6px !important;
+    font-family: "NotoSansTC-Regular", "Microsoft JhengHei", "Segoe UI", Arial, sans-serif !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    line-height: 1.4 !important;
+    border: 1px solid #90a4ae !important;
+    background: #f5f7f9 !important;
+    color: #37474f !important;
+    opacity: 1 !important;
+    transition: opacity 220ms ease !important;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.16) !important;
+    white-space: normal !important;
+    pointer-events: none !important;
+}
+
+.household-status-indicator.is-hiding {
+    opacity: 0 !important;
+}
+
+.household-status-indicator.is-loading {
+    border-color: #3977bd !important;
+    background: #eaf3ff !important;
+    color: #174f8a !important;
+}
+
+.household-status-indicator.is-done {
+    border-color: #2e7d32 !important;
+    background: #eaf6eb !important;
+    color: #1b5e20 !important;
+}
+
+.household-status-indicator.is-empty {
+    border-color: #78909c !important;
+    background: #eef2f4 !important;
+    color: #455a64 !important;
+}
+
+.household-status-indicator.is-error {
+    border-color: #b71c1c !important;
+    background: #ffebee !important;
+    color: #b71c1c !important;
+}
+
+.household-memo-hover-target {
+    cursor: help;
+}
+
+#household-member-memo-tooltip {
+    position: fixed;
+    z-index: 2147483647;
+    display: none;
+    box-sizing: border-box;
+    width: min(520px, calc(100vw - 24px));
+    min-width: 240px;
+    max-width: calc(100vw - 24px);
+    padding: 10px 13px;
+    border: 1px solid #b8c7d8;
+    border-radius: 7px;
+    background: linear-gradient(145deg, #fffef8 0%, #f8fbff 100%);
+    color: #243447;
+    box-shadow: 0 6px 20px rgba(28, 47, 67, .2);
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    line-height: 1.5;
+    font-size: clamp(11px, 0.9vw, 13px);
+    pointer-events: none;
+}
+
+#household-member-memo-tooltip.is-visible {
+    display: block;
+}
+
+.household-member-memo-title {
+    padding-bottom: 7px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #d9e2ec;
+    color: #174a73;
+    font-weight: 700;
+}
+
+.household-member-memo-line {
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr);
+    gap: 10px;
+    align-items: flex-start;
+    padding: 3px 0;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+}
+
+.household-member-memo-label {
+    flex: none;
+    color: #53677a;
+    font-weight: 700;
+}
+
+.household-member-memo-line > span:last-child {
+    min-width: 0;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 280px) {
+    #household-member-memo-tooltip {
+        min-width: 0;
+        width: calc(100vw - 16px);
+        max-width: calc(100vw - 16px);
+        padding: 8px 10px;
+    }
+    .household-member-memo-label {
+        flex-basis: 60px;
+    }
+}
+
+#historical-notes-dialog > div:first-child,
+#passbook-dialog > div:first-child,
+#staged-attachment-upload-dialog > div:first-child,
+#investment-subtotals-dialog > div:first-child,
+#batch-cert-dialog > div:first-child {
+    animation: swis-dialog-sheet-in 300ms cubic-bezier(0.22, 1, 0.36, 1);
+    transform-origin: 50% 18%;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #historical-notes-dialog,
+    #passbook-dialog,
+    #staged-attachment-upload-dialog,
+    #investment-subtotals-dialog,
+    #batch-cert-dialog,
+    #historical-notes-dialog > div:first-child,
+    #passbook-dialog > div:first-child,
+    #staged-attachment-upload-dialog > div:first-child,
+    #investment-subtotals-dialog > div:first-child,
+    #batch-cert-dialog > div:first-child {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+div.swis-memo-editor-shell {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #9fb4cc;
+    background: #fbfcff;
+    box-shadow: inset 0 1px 2px rgba(24, 44, 72, 0.08), 0 1px 3px rgba(24, 44, 72, 0.08);
+}
+
+textarea[name="memo"].swis-main-memo-textarea {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 72px !important;
+    max-height: 58vh !important;
+    padding: 14px 16px !important;
+    line-height: 2.1 !important;
+    font-family: "NotoSansTC-Regular", "Microsoft JhengHei", "Segoe UI", Arial, sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    letter-spacing: 0 !important;
+    white-space: pre-wrap !important;
+    word-break: break-word !important;
+    overflow-wrap: anywhere !important;
+    box-sizing: border-box !important;
+    border-radius: 8px !important;
+    background: #fbfcff !important;
+    color: #1d2733 !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    tab-size: 4 !important;
+    text-rendering: optimizeLegibility !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+textarea[name="memo"].swis-main-memo-textarea:focus {
+    box-shadow: none !important;
+}
+
+div.swis-memo-editor-shell:focus-within {
+    border-color: #3977bd !important;
+    background: #ffffff !important;
+    box-shadow: inset 0 1px 2px rgba(24, 44, 72, 0.08), 0 0 0 3px rgba(57, 119, 189, 0.18) !important;
+}
+
+div.swis-memo-action-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+div.swis-memo-action-row input[type="button"] {
+    margin-left: 0 !important;
+}
+
+tr.swis-main-memo-row > td {
+    vertical-align: top !important;
+}
+
+td.swis-main-memo-label {
+    padding-top: 18px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0 !important;
+}
+
+td.swis-main-memo-cell {
+    padding: 12px 14px 16px !important;
+    width: 100% !important;
+}
+
+@media (max-width: 900px) {
+    div.swis-memo-editor-shell {
+        border-radius: 8px;
+    }
+
+    textarea[name="memo"].swis-main-memo-textarea {
+        min-height: 72px !important;
+        max-height: 48vh !important;
+        padding: 14px 14px !important;
+        font-size: 15px !important;
+    }
+
+    td.swis-main-memo-cell {
+        padding: 10px 10px 14px !important;
+    }
+}
+
+#swis-review-summary {
+    --review-text: #273444;
+    --review-muted: #596572;
+    --review-link: #245d9c;
+    --review-success: #235d32;
+    --review-warning: #7b5912;
+    --review-danger: #a02424;
+    --review-border: #d4d9df;
+    position: static; margin: 0; padding: 0; border: 0;
+    border-radius: 0; box-shadow: none; background: #fff;
+    width: auto; max-height: none; font: inherit; color: inherit; text-align: left;
+}
+tr[data-swis-review-row] > td { background: #fff !important; padding: 0 !important; }
+#swis-review-summary .swis-review-content,
+#swis-review-summary .swis-review-toolbar,
+#swis-review-summary .swis-review-status { background: #fff; }
+#swis-review-summary > summary.swis-review-header {
+    display: list-item; min-height: 0; background: transparent;
+    padding: 6px 8px; cursor: pointer; user-select: none;
+    font-size: 13px; color: var(--review-link); line-height: 1.45;
+}
+#swis-review-summary .swis-review-hint { margin-left: 8px; color: #666; font-size: 12px; font-weight: normal; }
+#swis-review-summary .swis-review-preview { display: inline-flex; flex-direction: column; gap: 3px; margin-inline-start: 12px; max-width: 100%; vertical-align: top; color: var(--review-text); font-size: 13px; font-weight: normal; overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
+#swis-review-summary .swis-review-preview-line,
+#swis-review-summary .swis-review-assessment { display: flex; flex-wrap: wrap; align-items: baseline; gap: 3px 14px; }
+#swis-review-summary .swis-review-meta,
+#swis-review-summary .swis-review-metrics { color: var(--review-muted); font-size: 12px; }
+#swis-review-summary .swis-review-metrics strong { color: var(--review-text); font-weight: 600; }
+#swis-review-summary .swis-review-content { padding: 2px 8px 6px; }
+#swis-review-summary .swis-review-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; margin-bottom: 6px; font-size: 12px; color: var(--review-muted); }
+#swis-review-summary .swis-review-toolbar button { font: inherit; cursor: pointer; }
+#swis-review-summary .swis-review-toolbar button:disabled { cursor: wait; }
+#swis-review-summary .swis-review-status { margin: 3px 0; color: #555; font-size: 12px; line-height: 1.4; }
+#swis-review-summary .swis-review-table { width: 100%; border-collapse: collapse; font-size: 13px; line-height: 1.45; }
+#swis-review-summary .swis-review-table :is(th,td) { padding: 3px 8px; border: 1px solid var(--review-border); vertical-align: top; text-align: left; color: var(--review-text); }
+#swis-review-summary .swis-review-table th { width: 100px; font-weight: normal; white-space: nowrap; background: #f6f7f8; }
+#swis-review-summary .swis-review-table td { background: #fff; }
+#swis-review-summary .swis-review-value { color: var(--review-text); font-weight: 600; }
+#swis-review-summary .swis-review-state { width: 110px; white-space: nowrap; }
+#swis-review-summary .swis-review-state[data-state="empty"] { color: #805014; }
+#swis-review-summary .swis-review-state[data-state="error"] { color: #a02424; }
+#swis-review-summary .swis-review-card-value { overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
+#swis-review-summary .swis-review-card-value details { margin: 2px 0 0; }
+#swis-review-summary .swis-review-card-value summary { cursor: pointer; color: var(--review-link); font-size: 12px; padding-block: 2px; }
+#swis-review-summary .swis-review-card-value details div { padding: 2px 0; border-top: 1px dotted #ccc; }
+#swis-review-summary .swis-review-card-value .swis-review-detail { margin-top: 3px; padding: 3px 8px; border-top: 0; border-inline-start: 3px solid transparent; color: var(--review-text); line-height: 1.45; }
+#swis-review-summary .swis-review-detail[data-counted="counted"] { background: #fff; border-inline-start-color: #397448; }
+#swis-review-summary .swis-review-detail[data-counted="excluded"] { background: #f6f7f8; border-inline-start-color: #9ca5af; color: var(--review-muted); }
+#swis-review-summary .swis-review-detail[data-counted="unknown"] { background: #fffdf5; border-inline-start-color: #9b781c; }
+#swis-review-summary .swis-review-detail[data-counted="counted"] .swis-review-count-label { color: var(--review-success); }
+#swis-review-summary .swis-review-detail[data-counted="unknown"] .swis-review-count-label { color: var(--review-warning); }
+#swis-review-summary .swis-review-count-label { display: inline-block; min-width: 3em; margin-right: 4px; }
+#swis-review-summary .swis-review-source { display: block; margin-inline-start: 3.4em; font-size: 12px; color: var(--review-muted); }
+#swis-review-summary .swis-review-history { display: block; margin-inline-start: 3.4em; padding: 1px 0; border: 0; background: transparent; color: var(--review-warning); font-size: 12px; overflow-wrap: anywhere; }
+#swis-review-summary .swis-review-commercial { display: inline-block; margin-left: 6px; padding: 0 4px; border: 1px solid #a9b8d4; background: #eef2fb; color: #304d7b; font-size: 12px; }
+#swis-review-summary .swis-review-change { display: inline-block; margin-left: 6px; padding: 0 4px; border: 1px solid #c7a763; background: #fff7dc; color: #6c5014; font-size: 12px; }
+#swis-review-summary .swis-review-change[data-change="added"] { border-color: #a9b8d4; background: #eef2fb; color: #304d7b; }
+#swis-review-summary .swis-review-change[data-change="removed"] { border-color: #c9aaaa; background: #fff0ef; color: #8b3630; }
+#swis-review-summary .swis-review-result { font-weight: 600; }
+#swis-review-summary .swis-review-result[data-result="matched"] { color: var(--review-success); }
+#swis-review-summary .swis-review-result[data-result="exceeded"] { color: var(--review-danger); }
+#swis-review-summary .swis-review-result[data-result="pending"] { color: var(--review-warning); }
+#swis-review-summary .swis-review-standard { margin-top: 2px; font-size: 12px; color: #444; }
+#swis-review-summary .swis-review-standard > summary { cursor: pointer; color: var(--review-link); padding-block: 2px; }
+.swis-batch-result { margin-top: 3px; font-size: 12px; line-height: 1.5; text-align: left; max-width: 310px; white-space: normal; }
+.swis-batch-result > summary { cursor: pointer; color: #235d32; white-space: pre-line; line-height: 1.45; overflow-wrap: anywhere; }
+.swis-batch-result .swis-batch-current { font-weight: 600; }
+.swis-batch-result .swis-batch-previous { color: #666; font-size: 11px; font-weight: normal; }
+.swis-batch-result[data-state="pending"] > summary { color: #7b5912; }
+.swis-batch-result:is([data-state="error"],[data-state="exceeded"]) > summary { color: #a02424; }
+.swis-batch-result > div { color: #444; padding-top: 2px; }
+.swis-batch-result > small { color: #666; }
+.swis-batch-result > summary:focus-visible { outline: 2px solid #245d9c; outline-offset: 1px; }
+#swis-review-summary :is(summary,button):focus-visible { outline: 2px solid #245d9c; outline-offset: 1px; }

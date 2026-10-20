@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <h1>SWIS 財稅工具</h1>
+
+        <div id="main-ui">
+            <p class="status">狀態：<span id="status-text">檢查中...</span></p>
+            <button id="action-btn" disabled>執行</button>
+            <p class="hint" id="hint-text"></p>
+            <button id="view-details-btn" style="display:none; background-color: #17a2b8;">查看投資小計</button>
+        </div>
+
+        <div id="results-ui" style="display:none;">
+            <h2>比對完成</h2>
+            <p>共處理 <span id="match-count">0</span> 筆重複項目</p>
+            <button id="view-subtotals-btn" style="display:none; background-color: #17a2b8;">查看投資小計</button>
+            <button id="clear-storage-btn">清除暫存資料</button>
+        </div>
+
+        <div id="error-ui" style="display:none;">
+            <h2>無法執行</h2>
+            <p id="error-message"></p>
+        </div>
+    </div>
+    <script src="js/shared.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html>

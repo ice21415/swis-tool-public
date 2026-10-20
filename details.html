@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>投資資料詳情</title>
+    <style>
+        @font-face {
+            font-family: "NotoSansTC-Regular";
+            src: url("assets/fonts/NotoSansTC-Regular.ttf") format("truetype");
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+        }
+
+        body {
+            font-family: "NotoSansTC-Regular", "Microsoft JhengHei", "Segoe UI", sans-serif;
+            width: 500px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            user-select: text; /* 允許選取文字 */
+            -webkit-user-select: text;
+            -moz-user-select: text;
+            -ms-user-select: text;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 1.5em;
+            color: #0056b3;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .subtotal-info {
+            background-color: #f8f9fa;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border-left: 4px solid #28a745;
+            user-select: text; /* 確保可以選取 */
+            cursor: text;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #dee2e6;
+            user-select: text;
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            font-weight: bold;
+            color: #495057;
+            user-select: text;
+        }
+
+        .info-value {
+            color: #212529;
+            user-select: text;
+        }
+
+        .person-name {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #0056b3;
+            user-select: text;
+        }
+
+        .amount {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #28a745;
+            user-select: text;
+        }
+
+        .button-group {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            flex: 1;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #back-btn {
+            background-color: #6c757d;
+        }
+
+        #back-btn:hover {
+            background-color: #5a6268;
+        }
+
+        #clear-btn {
+            background-color: #dc3545;
+        }
+
+        #clear-btn:hover {
+            background-color: #c82333;
+        }
+
+        #clear-btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: #6c757d;
+        }
+
+        .empty-state h2 {
+            color: #dc3545;
+            margin-bottom: 10px;
+        }
+
+        .person-name-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .tag-group {
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 2px 7px;
+            border-radius: 10px;
+            font-size: 0.72em;
+            font-weight: bold;
+            color: white;
+            white-space: nowrap;
+            user-select: text;
+        }
+
+        .tag-relation {
+            background: #5b8dd9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 投資資料詳情</h1>
+        <div id="content"></div>
+        <div class="button-group">
+            <button id="back-btn">返回</button>
+            <button id="clear-btn">清除資料</button>
+        </div>
+    </div>
+    <script src="js/shared.js"></script>
+    <script src="details.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+{
+  "manifest_version": 3,
+  "name": "弱E小工具",
+  "version": "2.9.4",
+  "description": "財稅比對、投資小計、年度清查批次初審與設定、多分頁、附件、歷史備註、存摺、申請證明、資格偵測、欄位收合。",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "contextMenus",
+    "downloads"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "host_permissions": [
+    "https://swis.mohw.gov.tw/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://swis.mohw.gov.tw/*"
+      ],
+      "js": [
+        "early-transition.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    },
+    {
+      "matches": [
+        "https://swis.mohw.gov.tw/*"
+      ],
+      "js": [
+        "js/shared.js",
+        "js/review_config.js",
+        "js/core.js",
+        "js/feature_tax.js",
+        "js/feature_single_tab.js",
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": [
+        "https://swis.mohw.gov.tw/*"
+      ],
+      "js": [
+        "js/feature_history.js",
+        "js/feature_passbook.js",
+        "js/feature_certificate.js",
+        "js/feature_eligibility.js",
+        "js/feature_settings_menu.js",
+        "js/feature_prison_status.js",
+        "js/feature_household_status.js",
+        "js/feature_collapse_fields.js",
+        "js/feature_review.js",
+        "js/feature_review_batch_presentation.js",
+        "js/feature_review_batch.js",
+        "late-init.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "popup.html",
+        "popup.css",
+        "popup.js",
+        "details.html",
+        "details.js",
+        "assets/fonts/NotoSansTC-Regular.ttf",
+        "assets/fonts/NotoSansTC-SemiBold.ttf"
+      ],
+      "matches": [
+        "https://swis.mohw.gov.tw/*"
+      ]
+    }
+  ]
+}

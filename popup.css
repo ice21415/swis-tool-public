@@ -1,0 +1,156 @@
+@font-face {
+    font-family: "NotoSansTC-Regular";
+    src: url("assets/fonts/NotoSansTC-Regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+body {
+    font-family: "NotoSansTC-Regular", "Microsoft JhengHei", "Segoe UI", sans-serif;
+    width: 350px;
+    padding: 10px 20px;
+    background-color: #f9f9f9;
+    user-select: text; /* 允許選取文字 */
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    font-size: 1.2em;
+    color: #0056b3;
+}
+
+.status {
+    font-size: 1em;
+    color: #333;
+}
+
+#status-text {
+    font-weight: bold;
+    color: #d9534f;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    background-color: #007bff;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+button:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.hint {
+    font-size: 0.8em;
+    color: #666;
+    margin-top: 15px;
+    user-select: text;
+}
+
+/* 讓所有文字和數字可以選取 */
+p, span, div, h1, h2 {
+    user-select: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    cursor: text;
+}
+
+#results-ui h2 {
+    color: #28a745;
+}
+
+#error-ui h2 {
+    color: #c9302c;
+}
+
+#clear-storage-btn {
+    background-color: #f0ad4e;
+}
+
+/* CSS Toggle Switch */
+#css-toggle:checked + #css-toggle-slider {
+    background-color: #2563eb;
+}
+#css-toggle-slider::before {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    left: 3px;
+    bottom: 3px;
+    background: white;
+    border-radius: 50%;
+    transition: .2s;
+}
+#css-toggle:checked + #css-toggle-slider::before {
+    transform: translateX(20px);
+}
+
+/* Dark Toggle Switch */
+#dark-toggle:checked + #dark-toggle-slider {
+    background-color: #c4956a;
+}
+#dark-toggle-slider::before {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    left: 3px;
+    bottom: 3px;
+    background: #d4c8b8;
+    border-radius: 50%;
+    transition: .2s;
+}
+#dark-toggle:checked + #dark-toggle-slider::before {
+    transform: translateX(20px);
+}
+
+#clear-storage-btn:hover {
+    background-color: #ec971f;
+}
+
+#view-details-btn,
+#view-subtotals-btn {
+    background-color: #17a2b8;
+    margin-top: 10px;
+}
+
+#view-details-btn:hover,
+#view-subtotals-btn:hover {
+    background-color: #138496;
+}
+
+/* 增強可選取文字的視覺效果 */
+p, span, div {
+    cursor: text;
+}
+
+/* 選取文字時的高亮顏色 */
+::selection {
+    background-color: #b3d4fc;
+    color: #000;
+}
+
+::-moz-selection {
+    background-color: #b3d4fc;
+    color: #000;
+}
